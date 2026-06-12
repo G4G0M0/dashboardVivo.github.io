@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Logístico</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Dashboard Inteligente de Monitoramento Logístico</h1>
+    </header>
+
+    <div class="filtros">
+        <select id="filtroTransportadora">
+            <option value="Todas">Todas Transportadoras</option>
+            <option>FlashLog</option>
+            <option>RotaMax</option>
+            <option>ViaCargo</option>
+        </select>
+
+        <select id="filtroRegiao">
+            <option value="Todas">Todas Regiões</option>
+            <option>Norte</option>
+            <option>Nordeste</option>
+            <option>Sudeste</option>
+            <option>Sul</option>
+            <option>Centro-Oeste</option>
+        </select>
+
+        <button onclick="filtrar()">Filtrar</button>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h2>Total</h2>
+            <p id="total"></p>
+        </div>
+        <div class="card">
+            <h2>Atrasadas</h2>
+            <p id="atrasadas"></p>
+        </div>
+        <div class="card">
+            <h2>No Prazo</h2>
+            <p id="prazo"></p>
+        </div>
+        <div class="card">
+            <h2>% Atraso</h2>
+            <p id="percentual"></p>
+        </div>
+        <div class="card">
+            <h2>Maior Atraso</h2>
+            <p id="maior"></p>
+        </div>
+    </div>
+
+    <div class="graficos">
+        <div class="grafico">
+            <h2>Transportadoras</h2>
+            <canvas id="graficoTransportadora"></canvas>
+        </div>
+
+        <div class="grafico">
+            <h2>Regiões Críticas</h2>
+            <canvas id="graficoRegiao"></canvas>
+        </div>
+    </div>
+
+    <section>
+        <h2>Ranking dos Maiores Problemas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Transportadora</th>
+                    <th>Região</th>
+                    <th>Atraso</th>
+                </tr>
+            </thead>
+            <tbody id="ranking">
+
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+
+        <h2>Entregas</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Transportadora</th>
+                    <th>Região</th>
+                    <th>Prazo</th>
+                    <th>Dias Reais</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabela">
+
+            </tbody>
+        </table>
+    </section>
+
+    <div id="alerta"></div>
+    <script src="index.js"></script>
+</body>
+
+</html>
